@@ -1,5 +1,4 @@
 # Tsehay Mehari
-
 Premium Habesha Dress Rental & Shopping
 
 ## Description
