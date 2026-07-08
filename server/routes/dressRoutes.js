@@ -1,17 +1,26 @@
 const express = require("express");
-
 const router = express.Router();
 
-const controller = require("../controllers/dressController");
+const {
+    getAll,
+    getOne,
+    create,
+    update,
+    remove,
+    searchDresses
+} = require("../controllers/dressController");
 
-router.get("/", controller.getAll);
 
-router.get("/:id", controller.getOne);
+router.get("/", getAll);
 
-router.post("/", controller.create);
+router.get("/search", searchDresses)
 
-router.put("/:id", controller.update);
+router.get("/:id", getOne);
 
-router.delete("/:id", controller.remove);
+router.post("/", create);
+
+router.put("/:id", update);
+
+router.delete("/:id", remove);
 
 module.exports = router;
