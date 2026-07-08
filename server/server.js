@@ -14,5 +14,5 @@ pool.query("SELECT NOW()", (err, result) => {
   }
 });
 app.listen(PORT, () => {
-    console.log(` Server running on http://localhost:${PORT}`);
+   console.log(`Server running on http://localhost:${PORT}`);
 });
