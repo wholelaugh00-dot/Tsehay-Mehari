@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Dress Rental</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet" href="css/rental.css">
+
+</head>
+
+<body>
+
+<header>
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+
+<img src="images/TMlogo.jpg">
+
+</a>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="collection.html">Collection</a></li>
+
+<li><a href="gallery.html">Gallery</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="rental.html">Rental</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+<li><a href="wishlist.html">Wishlist</a></li>
+
+<li><a href="cart.html">Cart</a></li>
+
+<li><a href="login.html">Login</a></li>
+
+<li><a href="rental.html">Rental</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="rental">
+
+<h1>Reserve Your Luxury Dress</h1>
+
+<form id="rentalForm">
+
+<label>Select Dress</label>
+
+<select id="dress">
+
+<option>Luxury Wedding Dress</option>
+
+<option>Traditional Habesha</option>
+
+<option>Modern Collection</option>
+
+<option>Royal Bridal Dress</option>
+
+<option>Graduation Dress</option>
+
+<option>Golden Collection</option>
+
+</select>
+
+<label>Rental Start</label>
+
+<input type="date" id="startDate" required>
+
+<label>Return Date</label>
+
+<input type="date" id="returnDate" readonly>
+
+<h2>Total Price: $<span id="price">0</span></h2>
+
+<button type="submit">
+
+Confirm Rental
+
+</button>
+
+</form>
+
+</section>
+
+<script src="js/rental.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+.cart-page{
+
+margin-top:120px;
+
+padding:70px;
+
+}
+
+.cart-page h1{
+
+text-align:center;
+
+font-size:50px;
+
+margin-bottom:40px;
+
+font-family:'Playfair Display',serif;
+
+}
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+background:white;
+
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+th,td{
+
+padding:20px;
+
+text-align:center;
+
+border-bottom:1px solid #ddd;
+
+}
+
+td img{
+
+width:90px;
+
+border-radius:10px;
+
+}
+
+.checkout{
+
+margin-top:40px;
+
+text-align:right;
+
+}
+
+.checkout button{
+
+padding:15px 35px;
+
+background:#b68b2f;
+
+border:none;
+
+color:white;
+
+border-radius:30px;
+
+cursor:pointer;
+
+}

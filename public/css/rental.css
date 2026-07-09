@@ -1,0 +1,71 @@
+.rental{
+
+max-width:700px;
+
+margin:140px auto;
+
+background:white;
+
+padding:40px;
+
+border-radius:20px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+}
+
+.rental h1{
+
+text-align:center;
+
+margin-bottom:35px;
+
+}
+
+.rental form{
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.rental input,
+
+.rental select{
+
+padding:15px;
+
+border-radius:10px;
+
+border:1px solid #ddd;
+
+font-size:16px;
+
+}
+
+.rental button{
+
+background:#d4af37;
+
+color:white;
+
+padding:15px;
+
+border:none;
+
+border-radius:30px;
+
+font-size:18px;
+
+cursor:pointer;
+
+}
+
+.rental button:hover{
+
+background:#b98f25;
+
+}

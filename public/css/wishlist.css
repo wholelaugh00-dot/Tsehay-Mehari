@@ -1,0 +1,95 @@
+.wishlist-page{
+
+margin-top:120px;
+
+padding:70px;
+
+}
+
+.wishlist-page h1{
+
+text-align:center;
+
+font-size:50px;
+
+font-family:'Playfair Display',serif;
+
+margin-bottom:40px;
+
+}
+
+.wishlist-container{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:35px;
+
+}
+
+.wish-card{
+
+background:white;
+
+border-radius:18px;
+
+overflow:hidden;
+
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+transition:.4s;
+
+}
+
+.wish-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.wish-card img{
+
+width:100%;
+
+height:380px;
+
+object-fit:cover;
+
+}
+
+.wish-card h2{
+
+padding:15px;
+
+}
+
+.wish-card p{
+
+padding-left:15px;
+
+color:#c8a44d;
+
+font-weight:bold;
+
+}
+
+.wish-card button{
+
+margin:20px;
+
+padding:14px 30px;
+
+background:#c8a44d;
+
+color:white;
+
+border:none;
+
+border-radius:30px;
+
+cursor:pointer;
+
+width:calc(100% - 40px);
+
+}
