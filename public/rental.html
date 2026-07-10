@@ -1,92 +1,109 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dress Rental</title>
+<title>Dress Rental | Tsehay Mehari</title>
 
 <link rel="stylesheet" href="css/style.css">
-
 <link rel="stylesheet" href="css/rental.css">
 
 </head>
 
 <body>
 
-<header>
-
 <nav class="navbar">
 
 <a href="index.html" class="logo">
-
 <img src="images/TMlogo.jpg">
-
 </a>
 
 <ul class="nav-links">
 
 <li><a href="index.html">Home</a></li>
-
 <li><a href="collection.html">Collection</a></li>
-
 <li><a href="gallery.html">Gallery</a></li>
-
 <li><a href="about.html">About</a></li>
-
-<li><a href="rental.html">Rental</a></li>
-
+<li><a href="rental.html" class="active">Rental</a></li>
 <li><a href="contact.html">Contact</a></li>
-
-<li><a href="wishlist.html">Wishlist</a></li>
-
-<li><a href="cart.html">Cart</a></li>
-
+<li><a href="wishlist.html">Wishlist ❤️</a></li>
+<li><a href="cart.html">Cart 🛒</a></li>
 <li><a href="login.html">Login</a></li>
-
-<li><a href="rental.html">Rental</a></li>
 
 </ul>
 
 </nav>
 
-</header>
+<section class="rental-page">
 
-<section class="rental">
+<div class="rental-box">
 
 <h1>Reserve Your Luxury Dress</h1>
 
 <form id="rentalForm">
 
-<label>Select Dress</label>
+<label>Choose Dress</label>
 
 <select id="dress">
 
-<option>Luxury Wedding Dress</option>
+<option value="Luxury Wedding Dress">Luxury Wedding Dress</option>
 
-<option>Traditional Habesha</option>
+<option value="Traditional Habesha">Traditional Habesha</option>
 
-<option>Modern Collection</option>
+<option value="Modern Collection">Modern Collection</option>
 
-<option>Royal Bridal Dress</option>
+<option value="Royal Bridal Dress">Royal Bridal Dress</option>
 
-<option>Graduation Dress</option>
+<option value="Graduation Dress">Graduation Dress</option>
 
-<option>Golden Collection</option>
+<option value="Golden Collection">Golden Collection</option>
 
 </select>
 
-<label>Rental Start</label>
+<label>Delivery Address</label>
 
-<input type="date" id="startDate" required>
+<input
+type="text"
+id="address"
+placeholder="Enter your address"
+required>
+
+<label>Phone Number</label>
+
+<input
+type="tel"
+id="phone"
+placeholder="+251..."
+required>
+
+<label>Rental Start Date</label>
+
+<input
+type="date"
+id="startDate"
+required>
 
 <label>Return Date</label>
 
-<input type="date" id="returnDate" readonly>
+<input
+type="date"
+id="returnDate"
+readonly>
 
-<h2>Total Price: $<span id="price">0</span></h2>
+<div class="summary">
+
+<h3>Rental Summary</h3>
+
+<p>Rental Days:
+<span id="days">5</span></p>
+
+<p>Total Price:
+<strong>$<span id="price">0</span></strong></p>
+
+</div>
 
 <button type="submit">
 
@@ -95,6 +112,8 @@ Confirm Rental
 </button>
 
 </form>
+
+</div>
 
 </section>
 

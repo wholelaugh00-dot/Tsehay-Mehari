@@ -14,30 +14,39 @@ if (!exists) {
 } else {
     alert("Item already in wishlist!");
 }
+
 let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-const wishlistItems = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-const container = document.getElementById("wishlistItems");
+document.querySelectorAll(".wish-btn").forEach(button => {
 
-if(container){
+    button.addEventListener("click", () => {
 
-    if(wishlistItems.length===0){
+        const card = button.closest(".product-card");
 
-        container.innerHTML="<h2>Your wishlist is empty.</h2>";
+        const product = {
+            name: card.querySelector("h2").innerText,
+            price: card.querySelector(".price").innerText,
+            image: card.querySelector("img").src
+        };
 
-    }else{
+        const exists = wishlist.find(item => item.name === product.name);
 
-        wishlistItems.forEach(item=>{
+        if (!exists) {
 
-            container.innerHTML += `
-            <div class="wish-card">
-                <h3>${item.name}</h3>
-                <p>${item.price}</p>
-            </div>
-            `;
+            wishlist.push(product);
 
-        });
+            localStorage.setItem("wishlist", JSON.stringify(wishlist));
 
-    }
+            button.innerText = "❤ Saved";
 
-}
+            alert("Added to Wishlist!");
+
+        } else {
+
+            alert("Already in Wishlist");
+
+        }
+
+    });
+
+});

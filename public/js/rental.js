@@ -1,42 +1,51 @@
+const dress=document.getElementById("dress");
 const start=document.getElementById("startDate");
-
 const end=document.getElementById("returnDate");
 
 const price=document.getElementById("price");
+const days=document.getElementById("days");
 
-function calculate(){
+const prices={
 
-if(start.value && end.value){
+"Luxury Wedding Dress":180,
 
-const oneDay=1000*60*60*24;
+"Traditional Habesha":150,
 
-const days=(new Date(end.value)-new Date(start.value))/oneDay;
+"Modern Collection":170,
 
-let total=180;
+"Royal Bridal Dress":220,
 
-if(days>5){
+"Graduation Dress":140,
 
-total+=(days-5)*15;
+"Golden Collection":200
+
+};
+
+function updateRental(){
+
+if(!start.value)return;
+
+const s=new Date(start.value);
+
+const r=new Date(s);
+
+r.setDate(r.getDate()+5);
+
+end.value=r.toISOString().split("T")[0];
+
+const total=prices[dress.value]*5;
+
+price.innerText=total;
+
+days.innerText=5;
 
 }
 
-price.innerHTML=total;
+dress.addEventListener("change",updateRental);
 
-}
+start.addEventListener("change",updateRental);
 
-const returnDate = new Date(startDate);
-
-returnDate.setDate(returnDate.getDate()+5);
-
-document.getElementById("returnDate").value=
-returnDate.toISOString().split("T")[0];
-}
-
-start.addEventListener("change",calculate);
-
-end.addEventListener("change",calculate);
-
-document.getElementById("rentalForm").onsubmit=(e)=>{
+document.getElementById("rentalForm").addEventListener("submit",e=>{
 
 e.preventDefault();
 
@@ -44,14 +53,38 @@ const userId=localStorage.getItem("userId");
 
 if(!userId){
 
-alert("Please login before renting a dress.");
+alert("Please login before renting.");
 
-window.location="login.html";
+location.href="login.html";
 
 return;
 
 }
 
-alert("Rental request submitted successfully!");
+const rental={
+
+dress:dress.value,
+
+address:document.getElementById("address").value,
+
+phone:document.getElementById("phone").value,
+
+start:start.value,
+
+returnDate:end.value,
+
+total:price.innerText
 
 };
+
+let rentals=JSON.parse(localStorage.getItem("rentals"))||[];
+
+rentals.push(rental);
+
+localStorage.setItem("rentals",JSON.stringify(rentals));
+
+alert("🎉 Rental Confirmed Successfully!");
+
+window.location="cart.html";
+
+});

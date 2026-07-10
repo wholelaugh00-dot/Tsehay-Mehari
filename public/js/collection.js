@@ -19,7 +19,6 @@ if (search) {
     });
 
 }
-
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 document.querySelectorAll(".cart-btn").forEach(button => {
@@ -30,16 +29,26 @@ document.querySelectorAll(".cart-btn").forEach(button => {
 
         const product = {
             name: card.querySelector("h2").innerText,
-            price: card.querySelector(".price").innerText
+            price: card.querySelector(".price").innerText,
+            image: card.querySelector("img").src,
+            quantity: 1
         };
 
-        cart.push(product);
+        const exists = cart.find(item => item.name === product.name);
+
+        if (exists) {
+
+            exists.quantity++;
+
+        } else {
+
+            cart.push(product);
+
+        }
 
         localStorage.setItem("cart", JSON.stringify(cart));
 
         button.innerText = "✓ Added";
-
-        button.disabled = true;
 
         alert(product.name + " added to cart!");
 
@@ -47,9 +56,6 @@ document.querySelectorAll(".cart-btn").forEach(button => {
 
 });
 
-// ----------------------
-// WISHLIST
-// ----------------------
 
 let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 

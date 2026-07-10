@@ -1,43 +1,115 @@
-const exists = cart.find(item => item.name === product.name);
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-if (!exists) {
-    if(!cart.some(item=>item.name===product.name)){
-    cart.push(product);
-}else{
-    alert("Item already in cart!");
-    return;
+const table = document.getElementById("cartTableBody");
+const totalElement = document.getElementById("cartTotal");
+
+function loadCart() {
+
+    table.innerHTML = "";
+
+    let grandTotal = 0;
+
+    if (cart.length === 0) {
+
+        table.innerHTML = `
+            <tr>
+                <td colspan="6" style="text-align:center;">
+                    Your cart is empty.
+                </td>
+            </tr>
+        `;
+
+        totalElement.innerText = "Total: $0";
+
+        return;
+    }
+
+    cart.forEach((item, index) => {
+
+        const price = Number(item.price.replace("$",""));
+
+        const total = price * item.quantity;
+
+        grandTotal += total;
+
+        table.innerHTML += `
+
+        <tr>
+
+            <td>
+                <img src="${item.image}" width="90">
+            </td>
+
+            <td>${item.name}</td>
+
+            <td>${item.price}</td>
+
+            <td>
+
+                <button onclick="decrease(${index})">-</button>
+
+                ${item.quantity}
+
+                <button onclick="increase(${index})">+</button>
+
+            </td>
+
+            <td>$${total}</td>
+
+            <td>
+
+                <button onclick="removeItem(${index})">
+
+                    Delete
+
+                </button>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+    totalElement.innerText = "Total: $" + grandTotal;
+
 }
-    localStorage.setItem("cart", JSON.stringify(cart));
-    button.innerText = "✓ Added";
-    button.disabled = true;
-    alert(product.name + " added to cart!");
-} else {
-    alert("Item already in cart!");
+
+function increase(index){
+
+    cart[index].quantity++;
+
+    save();
+
 }
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
-const container = document.getElementById("cartItems");
+function decrease(index){
 
-if(container){
+    if(cart[index].quantity>1){
 
-    if(cartItems.length===0){
-
-        container.innerHTML="<h2>Your cart is empty.</h2>";
-
-    }else{
-
-        cartItems.forEach(item=>{
-
-            container.innerHTML += `
-            <div class="cart-card">
-                <h3>${item.name}</h3>
-                <p>${item.price}</p>
-            </div>
-            `;
-
-        });
+        cart[index].quantity--;
 
     }
 
+    save();
+
 }
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    save();
+
+}
+
+function save(){
+
+    localStorage.setItem("cart",JSON.stringify(cart));
+
+    loadCart();
+
+}
+
+loadCart();
